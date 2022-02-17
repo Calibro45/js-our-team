@@ -32,36 +32,39 @@ const team = [
 ];
 console.log(team);
 
-const card = 
-`
-    <div class="team-card">
-        <div class="card-image">
-            <img
-            src="img/wayne-barnett-founder-ceo.jpg"
-            alt="Wayne Barnett"
-            />
-        </div>
-        <div class="card-text">
-            <h3>Wayne Barnett</h3>
-            <p>Founder & CEO</p>
-        </div>
-    </div>
-`;
-console.log(card);
 
 // ciclare array contenente i membri del team
 
 for (let i = 0; i < team.length; i++) {
-
+    
     const teamIndex = team[i];
-
+    
     // ricavo le chiavi e il valore degli oggetti presenti nell'array
-
+    
     const name = teamIndex.name;
     const role = teamIndex.role;
     const image = teamIndex.image;
 
+    // creo elemento html contenente le info del team
+    
+    const card = 
+    `
+        <div class="team-card">
+            <div class="card-image">
+                <img
+                src="${image}"
+                alt="${name}"
+                />
+            </div>
+            <div class="card-text">
+                <h3>${name}</h3>
+                <p>${role}</p>
+            </div>
+        </div>
+    `;
+    console.log(card);
 
     console.log(teamIndex, name, role, image);
 }
+
 
