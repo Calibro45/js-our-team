@@ -32,6 +32,17 @@ const team = [
 ];
 console.log(team);
 
+// elementi form del DOM
+
+const formName = document.getElementById('name');
+const roleForm = document.getElementById('role');
+const imageForm = document.getElementById('image');
+
+// button 
+
+const button = document.getElementById('addMemberButton');
+//console.log(formName, roleForm, imageForm, button);
+
 // recupero dal dom elemento contenitore delle card del team
 
 const teamContainer = document.querySelector('.team-container');
@@ -39,25 +50,11 @@ const teamContainer = document.querySelector('.team-container');
 
 const card = generaCard();
 
-const teamMember = teamMemberGenerator('andrea rondinelli', 'mente criminale', 'immagine');
-console.log(teamMember);
+// evento bottone form
 
-// creazione funzione per nuovo membro
+button.addEventListener('click', formValues);
 
-function teamMemberGenerator (nome, ruolo, immagine) {
-    
-    // creazione di un nuovo oggetto
-    
-    const newTeamMember = {
-        name: nome,
-        role: ruolo,
-        image: immagine,
-    }
-    
-    return newTeamMember;
-
-}
-
+// funzione genera card team member
 
 function generaCard () {
 
@@ -102,4 +99,47 @@ function generaCard () {
 
 }
 
+// funzione evento click button
 
+function formValues() {
+    
+    // vaolori del form
+    
+    const nameValue = formName.value;
+    const roleValue = roleForm.value;
+    const imageValue = imageForm.value;
+    console.log(nameValue, roleValue, imageValue);
+    
+    teamMemberGenerator(nameValue, roleValue, imageValue);
+
+    teamContainer.innerHTML += 
+    `
+        <div class="team-card">
+            <div class="card-image">
+                <img
+                src="img/${imageValue}"alt="${nameValue}"/>
+            </div>
+            <div class="card-text">
+                <h3>${nameValue}</h3>
+                <p>${roleValue}</p>
+            </div>
+        </div>
+    `;
+    
+}
+
+// creazione funzione per nuovo membro
+
+function teamMemberGenerator (nome, ruolo, immagine) {
+    
+    // creazione di un nuovo oggetto
+    
+    const newTeamMember = {
+        name: nome,
+        role: ruolo,
+        image: immagine,
+    }
+    
+    team.push(newTeamMember);
+    
+}
