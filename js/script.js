@@ -39,10 +39,24 @@ const teamContainer = document.querySelector('.team-container');
 
 const card = generaCard();
 
+const teamMember = teamMemberGenerator('andrea rondinelli', 'mente criminale', 'immagine');
+console.log(teamMember);
 
+// creazione funzione per nuovo membro
 
+function teamMemberGenerator (nome, ruolo, immagine) {
+    
+    // creazione di un nuovo oggetto
+    
+    const newTeamMember = {
+        name: nome,
+        role: ruolo,
+        image: immagine,
+    }
+    
+    return newTeamMember;
 
-
+}
 
 
 function generaCard () {
