@@ -35,42 +35,57 @@ console.log(team);
 // recupero dal dom elemento contenitore delle card del team
 
 const teamContainer = document.querySelector('.team-container');
-console.log(teamContainer);
+//console.log(teamContainer);
+
+const card = generaCard();
 
 
-// ciclare array contenente i membri del team
 
-for (let i = 0; i < team.length; i++) {
-    
-    const teamIndex = team[i];
-    
-    // ricavo le chiavi e il valore degli oggetti presenti nell'array
-    
-    const name = teamIndex.name;
-    const role = teamIndex.role;
-    const image = teamIndex.image;
-    console.log(teamIndex, name, role, image);
 
-    // creo elemento html contenente le info del team
-    
-    const card = 
-    `
-        <div class="team-card">
-            <div class="card-image">
-                <img
-                src="img/${image}"alt="${name}"/>
+
+
+
+function generaCard () {
+
+    // ciclare array contenente i membri del team
+
+    let card = '';
+
+    for (let i = 0; i < team.length; i++) {
+        
+        const teamIndex = team[i];
+        
+        // ricavo le chiavi e il valore degli oggetti presenti nell'array
+        
+        const name = teamIndex.name;
+        const role = teamIndex.role;
+        const image = teamIndex.image;
+        //console.log(teamIndex, name, role, image);
+
+        // creo elemento html contenente le info del team
+        
+        card = 
+        `
+            <div class="team-card">
+                <div class="card-image">
+                    <img
+                    src="img/${image}"alt="${name}"/>
+                </div>
+                <div class="card-text">
+                    <h3>${name}</h3>
+                    <p>${role}</p>
+                </div>
             </div>
-            <div class="card-text">
-                <h3>${name}</h3>
-                <p>${role}</p>
-            </div>
-        </div>
-    `;
-    //console.log(card);
+        `;
+        //console.log(card);
 
-    teamContainer.innerHTML += card;
-    console.log(teamContainer.innerHTML);
+        teamContainer.innerHTML += card;
+        //console.log(teamContainer.innerHTML);
     
+    }
+    
+    return card;
+
 }
 
 
