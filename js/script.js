@@ -51,5 +51,10 @@ console.log(card);
 
 // ciclare array contenente i membri del team
 
+for (let i = 0; i < team.length; i++) {
 
+    const teamIndex = team[i];
+
+    console.log(teamIndex);
+}
 
