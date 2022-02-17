@@ -55,6 +55,13 @@ for (let i = 0; i < team.length; i++) {
 
     const teamIndex = team[i];
 
-    console.log(teamIndex);
+    // ricavo le chiavi e il valore degli oggetti presenti nell'array
+
+    const name = teamIndex.name;
+    const role = teamIndex.role;
+    const image = teamIndex.image;
+
+
+    console.log(teamIndex, name, role, image);
 }
 
