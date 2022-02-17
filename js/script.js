@@ -32,6 +32,11 @@ const team = [
 ];
 console.log(team);
 
+// recupero dal dom elemento contenitore delle card del team
+
+const teamContainer = document.querySelector('.team-container');
+console.log(teamContainer);
+
 
 // ciclare array contenente i membri del team
 
@@ -44,6 +49,7 @@ for (let i = 0; i < team.length; i++) {
     const name = teamIndex.name;
     const role = teamIndex.role;
     const image = teamIndex.image;
+    console.log(teamIndex, name, role, image);
 
     // creo elemento html contenente le info del team
     
@@ -52,9 +58,7 @@ for (let i = 0; i < team.length; i++) {
         <div class="team-card">
             <div class="card-image">
                 <img
-                src="${image}"
-                alt="${name}"
-                />
+                src="img/${image}"alt="${name}"/>
             </div>
             <div class="card-text">
                 <h3>${name}</h3>
@@ -62,9 +66,11 @@ for (let i = 0; i < team.length; i++) {
             </div>
         </div>
     `;
-    console.log(card);
+    //console.log(card);
 
-    console.log(teamIndex, name, role, image);
+    teamContainer.innerHTML += card;
+    console.log(teamContainer.innerHTML);
+    
 }
 
 
